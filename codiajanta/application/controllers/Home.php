@@ -4,7 +4,6 @@ class Home extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        /* Load the URL helper */
         $this->load->helper('url');
     }
 
@@ -30,24 +29,21 @@ class Home extends CI_Controller {
      */
     function validate_credentials() {
         $this->load->model('Users_model');
+        
         $user_name = $this->input->post('user_name');
         $password = $this->__encrip_password($this->input->post('password'));
-
-        //function which return if its validated
-        $is_valid = $this->Users_model->validate($user_name, $password);
+        $is_valid = $this->Users_model->validate($user_name, $password); //function which return if its validated
         
         if ($is_valid) {
-            echo "You have been Successfully Loged-In !";
             $data = array(
                 'user_name' => $user_name,
-                //'user_profile' => $user_profile,
                 'is_logged_in' => true
             );
-            $this->session->set_userdata($data);
+            $this->session->set_userdata($data); //set the session
             redirect('painting/index'); // See in routes corresponding controller and method
-        } else { // incorrect username or password
+        } else { 
             echo "There was an error with your E-Mail/Password combination. Please try again!";
-            $data['login_error'] = TRUE;
+            $data['is_logged_in'] = FALSE;
             $this->load->view('login', $data); //Passing data to view
         }
     }
@@ -80,8 +76,6 @@ class Home extends CI_Controller {
             $this->load->view('signup_form');
         } else {
             $this->load->model('Users_model');
-
-            //if ($query == $this->Users_model->create_member()) {
             if ($this->Users_model->create_member()) {
                 $this->load->view('signup_successful');
             } else {

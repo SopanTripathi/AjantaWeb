@@ -11,41 +11,34 @@
                 padding-top: 50px;
                 padding-left: 20px;
             }
+            .w3-container {
+    padding: 5em 16px;
+}
         </style>
 
         <!-- Script Call -->
-        <script src="<?php echo base_url(); ?>assets/js/paintings.js"></script>
+        <script src="<?php echo base_url(); ?>assets/js/stories.js"></script>
     </head>
 
 
     <body>
-        <div class="painting_functions">
-            <nav class="w3-sidenav w3-light-grey w3-card-2" style="width:230px">
-                <div class="w3-container">
-                    <h3>Menu</h3>
-                </div>
-                <a href="javascript:void(0)" class="tablink" onclick="openCity(event, 'LineDrawing')" id="defaultOpen">Stories 1</a>
-                <a href="javascript:void(0)" class="tablink" onclick="openCity(event, 'Reconstructed')">Stories 2</a>
-                <a href="javascript:void(0)" class="tablink" onclick="openCity(event, 'Jataka')">Stories 3</a>
-            </nav>
+       <div class="w3-container">
+ 
+  <div class="w3-bar w3-black">
+    <button class="w3-bar-item w3-button tablink w3-red" onclick="openCity(event,'London')">Stories 1</button>
+    <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Paris')">Stories 2</button>
+  </div>
+  
+  <div id="London" class="w3-container w3-border city">
+    <h2>Stories 1</h2>
+    <p>London is the capital city of England.</p>
+  </div>
 
-            <div style="margin-left:230px">
-                <div id="LineDrawing" class="w3-container city" style="display:none">
-                    <h2>Line Drawings</h2>
-                    <p>All Functions of Linedrawing Here </p>
-                </div>
-
-                <div id="Reconstructed" class="w3-container city" style="display:none">
-                    <h2>Reconstructed</h2>
-                    <p>All Functions of Reconstructed Here</p> 
-                </div>
-
-                <div id="Jataka" class="w3-container city" style="display:none">
-                    <h2>Jataka</h2>
-                    <p>All Functions of Jataka Here</p>
-                </div>
-            </div>
-        </div>
+  <div id="Paris" class="w3-container w3-border city" style="display:none">
+    <h2>Stories 2</h2>
+    <p>Paris is the capital of France.</p> 
+  </div>
+</div>
     </body>
 </html>
 
