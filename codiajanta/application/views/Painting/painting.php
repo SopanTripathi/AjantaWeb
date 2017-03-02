@@ -45,15 +45,8 @@
                     <br><br>
                     <div id="formpainting">
                         <?php
-                        echo form_open('painting/add_painting');
-                        echo form_label('Upload Image');
-                        $data_upload = array(
-                            'type' => 'file',
-                            'name' => 'filename',
-                            'value' => 'upload filename'
-                            );
-                        echo form_upload($data_upload);
-                        echo '<br>';
+                        echo $error;
+                        echo form_open_multipart('painting/add_painting');
                         echo form_label('Painting Title :');
                         echo form_input('title', '', 'placeholder="Enter Title of Painting"');
                         echo '<br>';
@@ -68,32 +61,40 @@
                         echo '<br>';
                         echo form_label('Cave Type :');
                         echo form_input('cave_type', '', 'placeholder="Enter Cave Type"');
-                        echo '<br>';
-                        echo form_submit(array('id' => 'submit', 'value' => 'Submit'));
+                        echo "<br/>";
+                        echo "<input type='file' name='userfile' size='40' />";
+                        echo "<br/>";
+                        echo form_submit('submit', 'submit');
                         echo form_close();
                         ?>
+
                     </div>
 
 
                 </div>
 
                 <div id="Reconstructed" class="w3-container city" style="display:none">
-                    <h2>Reconstructed</h2>
-                    <p>All Functions of Reconstructed Here</p>
-                    <?php
-                    if (isset($title)) {
-                        print_r($data);
-                    }
-                    ?>
+                    mlkmlml
                 </div>
 
-                <div id="Jataka" class="w3-container city" style="display:none">
-                    <h2>Jataka</h2>
-                    <p>All Functions of Jataka Here</p>
+
+                <div id="form_button">
+                    <?php echo form_reset('reset', 'Reset', "class='submit'"); ?>
+
+                    <br><br>
+                    <?php echo form_submit('submit', 'Submit', "class='submit'"); ?>
                 </div>
+                <?php echo form_close(); ?>
+
+            </div>
+
+            <div id="Jataka" class="w3-container city" style="display:none">
+                <h2>Jataka</h2>
+                <p>All Functions of Jataka Here</p>
             </div>
         </div>
-    </body>
+    </div>
+</body>
 </html>
 
 
